@@ -10,7 +10,6 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
     <img 
     v-if="pokemon.name"
       :src="pokemon.img" 
-      height="250" 
       class="card-img-top pt-3" 
       :alt="pokemon.name" 
     />
@@ -23,9 +22,9 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
       alt="???" 
     />
     <div class="card-body">
-      <h5 class="card-title text-center">{{ pokemon.name  || '???'}}</h5>
+      <h5 class="card-titler text-center">{{ pokemon.name  || '???'}}</h5>
       <hr />
-      <div class="row">
+      <div class="row text-center">
         <section class="col">
           <strong>XP:</strong>
           <span>{{ pokemon.xp }}</span>
@@ -36,6 +35,22 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
           <span>{{ pokemon.height }}</span>
         </section>
       </div>
+
+      <div class="d-none d-md-block">
+        <div class="row text-center mt-4">
+          <section class="col">
+            <strong>XP:</strong>
+            <span>{{ pokemon.xp }}</span>
+          </section>
+
+          <section class="col">
+            <strong>Height:</strong>
+            <span>{{ pokemon.height }}</span>
+          </section>
+        </div>
+      </div>
+      
+       
     </div>
   </div>
 </template>
@@ -49,5 +64,21 @@ const pokemon = defineProps(["name", "xp", "height", "img", "loading"]);
     rgba(243, 17, 142, 0.49)39%,
     rgba(13, 110, 253, 1) 100%
   );
+}
+
+.cardPokemonSelected img{
+  height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .cardPokemonSelected {
+    height: 30vh;
+    width: 40%;
+    margin: 0 auto 10px auto;
+  }
+
+  .cardPokemonSelected img{
+    height: 100px;
+  }
 }
 </style>
